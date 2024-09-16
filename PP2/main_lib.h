@@ -1,5 +1,5 @@
-#ifndef RTWEEKEND_H
-#define RTWEEKEND_H
+#ifndef MAIN_LIB_H
+#define MAIN_LIB_H
 
 #include <cmath>       // Biblioteca para funções matemáticas (ex: sqrt, sin, cos).
 #include <cstdlib>     // Biblioteca padrão para funções de manipulação de memória e geração de números aleatórios.
