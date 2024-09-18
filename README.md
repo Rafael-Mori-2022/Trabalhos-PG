@@ -1,17 +1,21 @@
-# Trabalho de processamento gráfico - raytracing e webgl
-Esse repositório contém a implementação do PP2 relacionado a raytracing e o segundo trabalho referente a webgl.
+# Trabalho de Processamento Gráfico - Ray Tracing e WebGL
+Esse repositório contém a implementação do PP2 relacionado a Ray Tracing e o trabalho em substituição à prova referente a WebGL.
 
-## PP2 - Ray tracing
-O trabalho consiste em utilizar o raytracing para visualização de duas imagens.
+## PP2 - Ray Tracing
+O trabalho consiste em utilizar o Ray Tracing para visualização de três imagens:
+1. Imagem padrão
+2. Imagem com movimentação de objetos
+3. Imagem com movimentação de câmera
 
 ### Detalhes sobre a implementação e execução
 * As imagens são geradas por meio da execução no terminal do arquivo `main.cc` por meio dos seguintes comandos em sequência:
   * Para compilar o arquivo:
-   ```bash
-    g++ main.cpp -o raytracer
-    ```
-  * Para rodar o executável gerado no passo anterior e gerar como saída a imagem no arquivo `final_scene.ppm`
 
+   ```bash
+    g++ main.cc -o raytracer
+    ```
+  * Para rodar o executável gerado no passo anterior e gerar como saída a imagem no arquivo `final_scene.ppm`:
+  
   ```bash
     ./raytracer > final_scene.ppm
     ```
@@ -48,9 +52,15 @@ No terminal, use os seguintes comandos (dependendo da distribuição):
 
 Agora, você poderá utilizar o comando `convert` para converter arquivos `.ppm` para `.png` ou outros formatos.
 
-* A imagem de saída gerada para essa etapa apresenta objetos relacionados ao jogo Minecraft, desenvolvido pela Mojang, contendo assim LISTAR OBJETOS. Além disso, são realizados alguns movimentos na imagem sendo um deles na câmera e outro no COLOCAR OBJETO.
+* A imagem de saída gerada para essa etapa apresenta objetos relacionados ao jogo Minecraft, desenvolvido pela Mojang, contendo assim uma árvore, um baú, uma enderpearl e uma fireball. Além disso, são realizados alguns movimentos na imagem sendo um deles na câmera e outro na mudança do posicionamento entre dois objetos, sendo eles a enderpearl e a fireball.
 
 * Dessa forma, as imagens geradas no PP2 podem ser verificadas abaixo.
+
+![Imagem padrão do cenário](https://github.com/Rafael-Mori-2022/Trabalhos-PG/blob/main/PP2/outputs/final_scene1.png)
+
+![Imagem com movimentação de dois objetos](https://github.com/Rafael-Mori-2022/Trabalhos-PG/blob/main/PP2/outputs/final_scene2.png)
+
+![Imagem com movimentação da câmera](https://github.com/Rafael-Mori-2022/Trabalhos-PG/blob/main/PP2/outputs/final_scene3.png)
 
 ## Trabalho WebGL
 Esse trabalho visa, por meio de uma implementação em WebGL, mostrar na tela do usuário 2 objetos 3D com texturas, sendo dois cubos com textura de madeira, em que tem-se movimentos independentes e uma iluminação variável de acordo com o movimento realizado pelo objeto.
@@ -71,5 +81,7 @@ Esse trabalho visa, por meio de uma implementação em WebGL, mostrar na tela do
 * O arquivo `main.js` contém a lógica de renderização e animação dos objetos.
 * Os arquivos `.obj` correspondem aos objetos que são mostrados na tela do usuário.
 * Desse modo, o resultado desse trabalho pode ser visualizado por meio do GIF abaixo.
+
+![Visualização de dois objetos 3D texturizados com movimentações independentes](https://github.com/Rafael-Mori-2022/Trabalhos-PG/blob/main/PROVA/output/cube.gif)
 
 🚀 | Desenvolvido por @guisantoxxx's, @mateusmatsuo, @PedroGCorreia e @Rafael-Mori-2022
