@@ -7,12 +7,11 @@ O trabalho consiste em utilizar o raytracing para visualização de duas imagens
 ### Detalhes sobre a implementação e execução
 * As imagens são geradas por meio da execução no terminal do arquivo `main.cc` por meio dos seguintes comandos em sequência:
   * Para compilar o arquivo:
-  
    ```bash
     g++ main.cpp -o raytracer
     ```
-  * Para rodar o executável gerado no passo anterior e gerar como saída a imagem no arquivo `final_scene.ppm`;
-  
+  * Para rodar o executável gerado no passo anterior e gerar como saída a imagem no arquivo `final_scene.ppm`
+
   ```bash
     ./raytracer > final_scene.ppm
     ```
