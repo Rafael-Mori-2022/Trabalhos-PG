@@ -1,46 +1,57 @@
 #ifndef HITTABLE_LIST_H
 #define HITTABLE_LIST_H
+//==============================================================================================
+// Originally written in 2016 by Peter Shirley <ptrshrl@gmail.com>
+//
+// To the extent possible under law, the author(s) have dedicated all copyright and related and
+// neighboring rights to this software to the public domain worldwide. This software is
+// distributed without any warranty.
+//
+// You should have received a copy (see file COPYING.txt) of the CC0 Public Domain Dedication
+// along with this software. If not, see <http://creativecommons.org/publicdomain/zero/1.0/>.
+//==============================================================================================
 
-#include "hittable.h" 
+#include "aabb.h"
+#include "hittable.h"
 
-#include <vector>  
+#include <vector>
 
-// Representação de lista de objetos que podem ser atingidos por um raio.
+
 class hittable_list : public hittable {
   public:
-    std::vector<shared_ptr<hittable>> objects;  // Vetor de ponteiros compartilhados para objetos hittable. Armazena a lista de objetos na cena.
+    std::vector<shared_ptr<hittable>> objects;
 
-    // Construtores
     hittable_list() {}
-    hittable_list(shared_ptr<hittable> object) { add(object); } // Construtor que recebe um objeto e já adiciona à lista.
+    hittable_list(shared_ptr<hittable> object) { add(object); }
 
-    // Função para limpar a lista de objetos.
     void clear() { objects.clear(); }
 
-    // Função para adicionar um novo objeto à lista.
     void add(shared_ptr<hittable> object) {
-        objects.push_back(object);  // Adiciona o objeto ao vetor de objetos.
+        objects.push_back(object);
+        bbox = aabb(bbox, object->bounding_box());
     }
 
-    // Função override que verifica se um raio atinge algum objeto da lista.
-    // A função herda de hittable e precisa ser implementada. Ela retorna verdadeiro se algum objeto é atingido.
     bool hit(const ray& r, interval ray_t, hit_record& rec) const override {
-        hit_record temp_rec;  // Variável temporária para armazenar os dados de hit de cada objeto.
-        bool hit_anything = false;  // Variável booleana que armazena se algum objeto foi atingido.
-        auto closest_so_far = ray_t.max;  // Mantém a distância mínima de colisão para garantir que pegamos o objeto mais próximo.
+        hit_record temp_rec;
+        bool hit_anything = false;
+        auto closest_so_far = ray_t.max;
 
-        // Loop que percorre todos os objetos na lista.
         for (const auto& object : objects) {
-            // Verifica se o raio atinge o objeto atual e se está mais perto do que o objeto anterior.
             if (object->hit(r, interval(ray_t.min, closest_so_far), temp_rec)) {
-                hit_anything = true;  // Define que houve uma colisão.
-                closest_so_far = temp_rec.t;  // Atualiza a distância mais próxima para a colisão mais recente.
-                rec = temp_rec;  // Atualiza o registro de hit com os dados do objeto atingido.
+                hit_anything = true;
+                closest_so_far = temp_rec.t;
+                rec = temp_rec;
             }
         }
 
-        return hit_anything;  // Retorna verdadeiro se o raio atingiu qualquer objeto da lista.
+        return hit_anything;
     }
+
+    aabb bounding_box() const override { return bbox; }
+
+  private:
+    aabb bbox;
 };
+
 
 #endif

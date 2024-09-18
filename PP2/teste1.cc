@@ -87,7 +87,7 @@ world.add(make_shared<quad>(point3(x_above, y_above + cubo_size, z_above),
 
 // Remover a face base que estava fora do lugar e não é necessária
 
- auto sphere_texture = make_shared<image_texture>("olhos.png"); // Carregar a textura da esfera
+ auto sphere_texture = make_shared<image_texture>("enderpearl.png"); // Carregar a textura da esfera
  auto sphere_material = make_shared<lambertian>(sphere_texture); // Aplicar a textura à esfera
 // Adicionar uma esfera no centro da cena
 point3 sphere_center(0.5, 1.5, 1); // Posição centralizada da esfera
