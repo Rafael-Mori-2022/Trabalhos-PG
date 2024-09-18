@@ -53,7 +53,7 @@ Agora, você poderá utilizar o comando `convert` para converter arquivos `.ppm`
 * Dessa forma, as imagens geradas no PP2 podem ser verificadas abaixo.
 
 ## Trabalho WebGL
-Esse trabalho visa, por meio de uma implementação em WebGL, mostrar na tela do usuário 2 objetos 3D com texturas, sendo um OBJETO1 e um OBJETO2, em que tem-se movimentos independentes e uma iluminação variável de acordo com o movimento realizado pelo objeto.
+Esse trabalho visa, por meio de uma implementação em WebGL, mostrar na tela do usuário 2 objetos 3D com texturas, sendo dois cubos com textura de madeira, em que tem-se movimentos independentes e uma iluminação variável de acordo com o movimento realizado pelo objeto.
 
 ### Detalhes sobre a implementação e a execução
 * Para executar o trabalho WebGL, é necessário carregar o arquivo `main.html`, que é composto pelas importações das bibliotecas utilizadas e pelo canvas inicializando o WebGL, utilizando algum tipo de servidor local. Recomendamos a extensão **Live Server** do Visual Studio Code (VSCode). O Live Server permite iniciar um servidor local para visualizar páginas HTML dinamicamente.
